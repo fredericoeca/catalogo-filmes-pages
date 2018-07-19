@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="filmesModulo">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>NetCinema</title>
+
+    <!-- AngularJS -->
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+
+    <!-- Arquivo Controller -->
+    <script src="js/lib/app.js"></script>
+    <script src="js/controller/filmes.js"></script>
+    <script src="js/controller/inserirFilmeCtrl.js"></script>
+    <script src="js/controller/detalhesFilmeCtrl.js"></script>
+    <script src="js/controller/deleteFilme.js"></script>
+    <script src="js/controller/inserirArtistaCtrl.js"></script>
+    <script src="js/controller/artistas.js"></script>
+    <script src="js/controller/detalhesArtistaCtrl.js"></script>
+    <script src="js/controller/elencoCtrl.js"></script>
+    <script src="js/controller/loginCtrl.js"></script>
+    <script src="js/services/filmeAPIservice.js"></script>
+    <script src="js/services/paisesAPIservice.js"></script>
+    <script src="js/services/idiomaAPIservice.js"></script>
+    <script src="js/services/generoAPIservice.js"></script>
+    <script src="js/services/ditribuidorAPIservice.js"></script>
+    <script src="js/services/artistaAPIservice.js"></script>
+    <script src="js/services/nacionalidadeAPIservice.js"></script>
+    <script src="js/services/elencoAPIservice.js"></script>
+    <script src="js/diretive/ng-file-model.js"></script>
+    <script src="js/value/configValue.js"></script>
+    <script src="js/config/routeConfig.js"></script>
+
+    <!-- JQuery -->
+    <script src="js/lib/jquery.min.js" type="text/javascript"></script>
+
+    <!-- Bootstrap.min.js -->
+    <script src="js/lib/bootstrap.min.js"></script>
+
+    <!-- Bootstrap.min.css and dashboard.css-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    <!-- estilo.css -->
+    <link href="css/estilo.css" rel="stylesheet">
+
+    <!-- Contador de caractéres do textarea -->
+    <script>
+        $(document).on("input", "#fil_sinopse", function() {
+            var limite = 400;
+            var informativo = "caracteres restantes.";
+            var caracteresDigitados = $(this).val().length;
+            var caracteresRestantes = limite - caracteresDigitados;
+
+            if (caracteresRestantes <= 0) {
+                var fil_sinopse = $("textarea[name=fil_sinopse]").val();
+                $("textarea[name=fil_sinopse]").val(fil_sinopse.substr(0, limite));
+                $(".caracteres").text("0 " + informativo);
+            } else {
+                $(".caracteres").text(caracteresRestantes + " " + informativo);
+            }
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">NetCinema</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/filmes">Filmes</a></li>
+                <li><a href="#">Séries</a></li>
+                <li><a href="#">Artistas</a></li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Login <span class="glyphicon glyphicon-log-in"></span></a>
+                    <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="InputLogin2">Login</label>
+                                            <input type="text" class="form-control" id="InputLogin2" placeholder="Login" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="InputPassword2">Senha</label>
+                                            <input type="password" class="form-control" id="InputPassword2" placeholder="Senha" required>
+                                            <div class="help-block text-right"><a href="">Esqueceu sua senha?</a></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Manter logado
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="bottom text-center">
+                                    <a href="cad_usuario.html"><b>Cadastre-se</b></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" name="pes-filme" id="pes-filme" ng-model="pesquisaFilme" placeholder="Pesquisa...">
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#/filmes">Filmes <span class="sr-only">(current)</span></a></li>
+                <li><a href="#/listaFilmes">Lista de Filmes</a></li>
+                <li><a href="#/inserirFilme">Novo Filme</a></li>
+                <li><a href="#">Ranking</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">Séries <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Estreias</a></li>
+                <li><a href="#">Nova Série</a></li>
+                <li><a href="#">Epsódios</a></li>
+                <li><a href="#">Ranking</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#/artistas">Artistas <span class="sr-only">(current)</span></a></li>
+                <li><a href="#/listaArtistas">Lista de Artistas</a></li>
+                <li><a href="#/insArtista">Novo</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+        <div ng-view></div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <hr/>
+                <footer style="color: #8c8c8c">
+                    <p>&copy; NetCinema 2017</p>
+                </footer>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/lib/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="js/lib/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="js/lib/holder.min.js"></script>
+</body>
+</html>

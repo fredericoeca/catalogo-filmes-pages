@@ -1,0 +1,28 @@
+<div class="well-sm" style="margin-bottom: 15px">
+    <h4>Criar Elenco de {{filme.fil_nome}}</h4>
+</div>
+<hr />
+<div class="container-fluid">
+    <form class="form-horizontal" ng-submit="submit(elenco)">
+        <div class="form-group">
+            <div class="col-lg-1">
+                <label class="control-label" for="ele_artista">Artista: </label>
+            </div>
+            <div class="col-lg-5">
+                <select class="form-control" ng-model="elenco.ele_artista" name="ele_artista" id="ele_artista" ng-options="a.art_id as a.art_nome for a in artistas | orderBy:'art_nome'">
+                    <option value="">Selecione o artista do elenco</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-1">
+                <label class="control-label" for="ele_atividade">Atividade: </label>
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control" ng-model="elenco.ele_atividade" name="ele_atividade" id="ele_atividade" placeholder="Atividade do artista no filme" ng-required="true">
+            </div>
+        </div>
+        <input type="submit"  value="Salvar"  class="btn btn-primary usu-cad" onClick="history.go(-1)"/>
+        <button type="reset" class="btn btn-primary usu-cad">Limpar</button>
+    </form>
+</div>

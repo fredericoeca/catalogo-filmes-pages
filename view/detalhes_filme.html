@@ -1,0 +1,96 @@
+    <div class="well-sm" style="margin-bottom: 25px">
+        <h3>{{filme.fil_nome}}</h3>
+    </div>
+    <hr />
+    <div class="col-lg-3 col-sm-3" align="center">
+        <img ng-src="{{filme.fil_cartaz}}" class="img-responsive" width="211" height="300"/>
+    </div>
+    <div class="col-lg-5 col-sm-4">
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <label class="control-label">Título Original</label>
+            </div>
+            <div class="col-lg-12">
+                <output class="dado">{{filme.fil_titulo_original}}</output>
+            </div>
+        </div>        
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <label class="control-label">Ano de lançamento</label>
+            </div>
+            <div class="col-lg-12">
+                <output class="dado">{{filme.fil_lancamento}}</output>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <label class="control-label">País</label>
+            </div>
+            <div class="col-lg-12">
+                <output class="dado">{{filme.pai_nome}}</output>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <label class="control-label">Idioma</label>
+            </div>
+            <div class="col-lg-12">
+                <output class="dado">{{filme.idi_nome}} ({{filme.idi_sigla}})</output>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <label class="control-label">Distribuidor</label>
+            </div>
+            <div class="col-lg-12">
+                <output class="dado">{{filme.dis_nome}}</output>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <label class="control-label usu-per">Genero</label>
+            </div>
+            <div class="col-lg-12">
+                <output class="dado">{{filme.gen_nome}}</output>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <label class="control-label">Sinopse</label>
+            </div>
+            <div class="col-lg-12" style="text-align: justify">
+                <output class="dado">{{filme.fil_sinopse}}</output>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <label class="control-label">Duração</label>
+            </div>
+            <div class="col-lg-12">
+                <output class="dado">{{filme.fil_duracao}}</output>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">Elenco<a href="#/criarElenco/{{filme.fil_id}}" class="aln-link" title="Adicionar artista">
+                <span class="glyphicon glyphicon-plus"></span></a>
+            </div>
+            <div class="panel-body panel-elenco">
+                <div ng-repeat="e in elenco">
+                    <div class="col-lg-6 art-elenco">
+                        <img ng-src="{{e.art_foto}}" class="img-responsive" width="120" height="160"/>
+                        <p class="art-nome">{{e.art_nome}}</p>
+                        <p class="art-ativ">{{e.ele_atividade}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--</div>-->
+
+<div class="row">
+    <div class="col-sm-12">
+        <h4><span class="glyphicon glyphicon-backward" onClick="history.go(-1)"></span></h4>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+<div class="well-sm">
+    <h3><span class="glyphicon glyphicon-film"></span> Inserir Filme</h3>
+</div>
+<hr />
+<div class="container-fluid">
+    <form class="form-horizontal" ng-submit="submit(filme)">
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="fil_nome">Nome: </label>
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control" ng-model="filme.fil_nome" name="fil_nome" id="fil_nome" placeholder="Nome do Filme" ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="fil_titulo_original">Título Original: </label>
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control" ng-model="filme.fil_titulo_original" name="fil_titulo_original" id="fil_titulo_original" placeholder="Titulo original do filme" ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="fil_lancamento">Lançamento: </label>
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control" ng-model="filme.fil_lancamento" name="fil_lancamento" id="fil_lancamento" placeholder="Ano de lançamento do filme" ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="fil_pais">País: </label>
+            </div>
+            <div class="col-lg-5">
+                <select class="form-control" ng-model="filme.fil_pais" name="fil_pais" id="fil_pais" ng-options="p.pai_id as p.pai_nome for p in paises | orderBy:'pai_nome'">
+                    <option value="">Selecione o país do filme</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="fil_idioma">Idioma: </label>
+            </div>
+            <div class="col-lg-5">
+                <select class="form-control" ng-model="filme.fil_idioma" name="fil_idioma" id="fil_idioma" ng-options="i.idi_id as i.idi_nome + ' (' + (i.idi_sigla) + ')' for i in idiomas | orderBy:'idi_nome'">
+                    <option value="">Selecione o idioma do filme</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="fil_distribuidor">Distribuidor: </label>
+            </div>
+            <div class="col-lg-5">
+                <select class="form-control" ng-model="filme.fil_distribuidor" name="fil_distribuidor" id="fil_distribuidor" ng-options="d.dis_id as d.dis_nome for d in distribuidores | orderBy:'dis_nome'">
+                    <option value="">Selecione o distribuidor do filme</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="fil_genero">Gênero: </label>
+            </div>
+            <div class="col-lg-5">
+                <select class="form-control" ng-model="filme.fil_genero" name="fil_genero" id="fil_genero" ng-options="g.gen_id as g.gen_nome for g in generos | orderBy:'gen_nome'">
+                    <option value="">Selecione o gênero do filme</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="fil_sinopse">Sinopse: </label>
+            </div>
+            <div class="col-lg-5">
+                <textarea class="form-control" ng-model="filme.fil_sinopse" name="fil_sinopse" id="fil_sinopse" rows="4" cols="40"></textarea>
+                <small class="caracteres"></small>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="fil_duracao">Duração: </label>
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control" ng-model="filme.fil_duracao" name="fil_duracao" id="fil_duracao" placeholder="Duração do filme" ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2">
+                <label class="control-label" for="fil_visto">Assistido: </label>
+            </div>
+            <div class="col-sm-3">
+                <label class="radio-inline">
+                    <input type="radio" ng-model="filme.fil_visto" id="fil_visto" name="fil_visto" value="1">sim
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="filme.fil_visto" name="fil_visto" value="0">não
+                </label>
+                <!--<label class="switch">
+                    <input type="checkbox" ng-model="f.fil_visto" id="fil_visto" ng-required="true">
+                    <div class="slider round"></div>
+                </label>-->
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2">
+                <label class="control-label" for="fil_media">Salvo em media: </label>
+            </div>
+            <div class="col-sm-3">
+                <label class="radio-inline">
+                    <input type="radio" ng-model="filme.fil_media" id="fil_media" name="fil_media" value="1">sim
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="filme.fil_media" name="fil_media" value="0">não
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="fil_cartaz">Cartaz: </label>
+            </div>
+            <div class="col-lg-5">
+                <input type="file" class="form-control" ng-file-model="filme.fil_cartaz" name="fil_cartaz" id="fil_cartaz" />
+            </div>
+        </div>
+        <!--<button class="btn btn-primary" ng-click="cadastrar(filme)">Cadastrar</button>-->
+        <input type="submit"  value="Salvar"  class="btn btn-primary usu-cad"/>
+        <button type="reset" class="btn btn-primary usu-cad">Limpar</button>
+    </form>
+</div>

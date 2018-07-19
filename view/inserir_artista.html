@@ -1,0 +1,55 @@
+<div class="well-sm">
+    <h3><span class="glyphicon glyphicon-star-empty"></span> Inserir Artista</h3>
+</div>
+<hr />
+<div class="container-fluid">
+    <form class="form-horizontal" ng-submit="submit(artista)">
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="art_nome">Nome: </label>
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control" ng-model="artista.art_nome" name="art_nome" id="art_nome" placeholder="Nome do Artista" ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="art_atividade">Atividade: </label>
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control" ng-model="artista.art_atividade" name="art_atividade" id="art_atividade" placeholder="Atividade do Artista" ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="art_nascimento">Data de Nascimento: </label>
+            </div>
+            <div class="col-lg-5">
+                <input type="date" class="form-control" ng-model="artista.art_nascimento" name="art_nascimento"
+                       id="art_nascimento" placeholder="yyyy-MM-dd" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="art_nascionalidade">Nascionalidade: </label>
+            </div>
+            <div class="col-lg-5">
+                <select class="form-control" ng-model="artista.art_nascionalidade" name="art_nascionalidade" id="art_nascionalidade"
+                        ng-options="n.nas_id as n.nas_nome for n in nacionalidades | orderBy:'nas_nome'">
+                    <option value="">Selecione a nacionalidade do artista</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label" for="art_foto">Foto: </label>
+            </div>
+            <div class="col-lg-5">
+                <input type="file" class="form-control" ng-file-model="artista.art_foto" name="art_foto" id="art_foto" />
+            </div>
+        </div>
+        <!--<button class="btn btn-primary" ng-click="cadastrar(filme)">Cadastrar</button>-->
+        <input type="submit"  value="Salvar"  class="btn btn-primary usu-cad"/>
+        <button type="reset" class="btn btn-primary usu-cad">Limpar</button>
+    </form>
+</div>

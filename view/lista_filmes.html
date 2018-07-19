@@ -1,0 +1,37 @@
+<div class="well-sm">
+    <h3><span class="glyphicon glyphicon-film"></span> Filmes</h3>
+</div>
+<hr />
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Filme</th>
+            <th>Ano</th>
+            <th>País</th>
+            <th>Idioma</th>
+            <th>Gênero</th>
+            <th>Duração</th>
+            <th>Elenco</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="filme in filmes | filter:pesquisaFilme">
+            <td><a href="#/detalhesFilme/{{filme.fil_id}}" id="link-filme">{{filme.fil_nome}}</a></td>
+            <td>{{filme.fil_lancamento}}</td>
+            <td><img ng-src="img/ban_pais/{{filme.pai_sigla}}.gif" title="{{filme.pai_nome}}" /></td>
+            <td>{{filme.idi_nome}}</td>
+            <td>{{filme.gen_nome}}</td>
+            <td>{{filme.fil_duracao}}</td>
+            <td><a href="#/criarElenco/{{filme.fil_id}}"><span class="glyphicon glyphicon-plus"></span></a></td>
+            <td ng-if="filme.fil_visto === 1"><span class="glyphicon glyphicon-eye-open" title="Assistido" style="color: #444444"></span></td>
+            <td ng-if="filme.fil_visto === 0"><span class="glyphicon glyphicon-eye-open" title="Não Assistido" style="color: #dddddd"></span></td>
+            <td ng-if="filme.fil_media === 1"><span class="glyphicon glyphicon-cd" title="Salvo no disco" style="color: #444444"></span></td>
+            <td ng-if="filme.fil_media === 0"><span class="glyphicon glyphicon-cd" title="Não salvo no disco" style="color: #dddddd"></span></td>
+            <td><a href="#/filmes/{{filme.fil_id}}"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

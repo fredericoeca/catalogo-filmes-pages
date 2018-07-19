@@ -1,0 +1,289 @@
+/* Link da barra de menu principal */
+.navbar{
+    background-color: #696969;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #79CDCD;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #79CDCD;
+    font-size: 15px;
+}
+
+a{
+    color: #528B8B;
+}
+
+.nav-sidebar > .active > a{
+    background-color: #999999;
+}
+
+.nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus{
+    background-color: #696969;
+    color: #79CDCD;
+}
+
+.jumbotron.carrossel{
+    padding: 0;
+}
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,255);
+}
+#login-dp .help-block{
+    font-size:12px
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+.btn.btn-primary.usu-cad{
+    width: 100px;
+}
+
+.control-label.fil-det{
+    font-size: 12px;
+}
+
+.row.usu-per{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.row.usu-tab{
+    padding: 20px;
+}
+
+.row.usu-find{
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+}
+
+#find-usu{
+    border-radius: 0%;
+    border-color: #CFCFCF;
+}
+
+.usus-tab{
+    border: 1px solid #CFCFCF;
+}
+
+.thead-tab-usu{
+    font-size: 12px;
+}
+
+.tbody-tab-usu{
+    font-size: 12px;
+}
+
+output.dado{
+    padding-top: 0;
+    padding-bottom: 10px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 22px;
+    margin-bottom: 0;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 22px;
+}
+
+.switch input {display:none;}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 26px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 0px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #ffffff;
+    -webkit-border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 5px;
+    background-color: #E8E8E8;
+    -webkit-border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    width: 5px;
+    background-color: #E8E8E8;
+    -webkit-border-radius: 0px;
+}
+
+#link-filme{
+    color: #000;
+}
+
+h5{
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.show-filme{
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border: solid 1px #e0e0e0;
+    padding: 0;
+}
+
+.det-fil{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 8px;
+    padding: 0;
+}
+
+.det-fil-img{
+    margin: 2px;
+    padding: 0;
+}
+
+.det-art-img{
+    margin-top: 12px;
+    margin-left: 3px;
+    margin-bottom: 2px;
+    padding: 0;
+}
+
+.det-art{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    padding: 0;
+}
+
+.save-artista{
+    font-size: 12px;
+    height: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.art-nome{
+    font-size: 12px;
+    padding-top: 5px;
+    margin-bottom: 3px;
+}
+
+.art-ativ{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.art-elenco{
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 220px;
+}
+
+div.panel-body.panel-elenco{
+    max-height: 550px;
+    overflow: auto;
+}
+
+.aln-link{
+    float: right;
+}

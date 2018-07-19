@@ -1,0 +1,40 @@
+<div class="well-sm" style="margin-bottom: 25px">
+    <h3>{{artista.art_nome}}</h3>
+</div>
+<hr />
+<div class="col-lg-3 col-sm-3" align="center">
+    <img ng-src="{{artista.art_foto}}" class="img-responsive" width="115" height="162"/>
+</div>
+<div class="col-lg-6 col-sm-4">
+    <div class="col-lg-10">
+        <div class="col-lg-12">
+            <label class="control-label">Atividade</label>
+        </div>
+        <div class="col-lg-12">
+            <output class="dado">{{artista.art_atividade}}</output>
+        </div>
+    </div>
+    <div class="col-lg-10">
+        <div class="col-lg-12">
+            <label class="control-label">Nascionalidade</label>
+        </div>
+        <div class="col-lg-12">
+            <output class="dado">{{artista.nas_nome}}</output>
+        </div>
+    </div>
+    <div class="col-lg-10">
+        <div class="col-lg-12">
+            <label class="control-label">Data de Nascimento</label>
+        </div>
+        <div class="col-lg-12">
+            <output class="dado">{{artista.art_nascimento | date:'dd/MM/yyyy'}}</output>
+        </div>
+    </div>
+</div>
+<!--</div>-->
+
+<div class="row">
+    <div class="col-sm-12">
+        <h4><span class="glyphicon glyphicon-backward" onClick="history.go(-1)"></span></h4>
+    </div>
+</div>

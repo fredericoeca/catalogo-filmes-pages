@@ -1,0 +1,26 @@
+<div class="col-md-5 show-filme" ng-repeat="filme in filmes | filter:pesquisaFilme">
+    <div class="col-md-5 det-fil-img">
+        <a href="#/detalhesFilme/{{filme.fil_id}}"><img ng-src="{{filme.fil_cartaz}}" width="160" height="229"/></a>
+    </div>
+    <div class="col-md-5 det-fil" align="center" style="margin-left: 2px; margin-top: 6px;">
+        <p><b>{{filme.fil_nome}}</b></p>
+    </div>
+    <div class="col-md-5 det-fil">
+        <label>Lançamento:</label> {{filme.fil_lancamento}}
+    </div>
+    <div class="col-md-5 det-fil">
+        <label>Pais:</label> <img ng-src="img/ban_pais/{{filme.pai_sigla}}.gif" title="{{filme.pai_nome}}" />
+    </div>
+    <div class="col-md-5 det-fil">
+        <label>Idioma:</label> {{filme.idi_nome}}
+    </div>
+    <div class="col-md-5 det-fil">
+        <label>Distribuidor:</label> {{filme.dis_nome}}
+    </div>
+    <div class="col-md-5 det-fil">
+        <label>Gênero:</label> {{filme.gen_nome}}
+    </div>
+    <div class="col-md-5 det-fil">
+        <label>Duração:</label> {{filme.fil_duracao}}
+    </div>
+</div>

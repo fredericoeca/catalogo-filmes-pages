@@ -1,0 +1,11 @@
+<div class="col-md-2 show-filme" ng-repeat="artista in artistas | filter:pesquisaFilme">
+    <div class="col-md-12 det-art-img" align="center">
+        <a href="#/detalhesArtista/{{artista.art_id}}"><img ng-src="{{artista.art_foto}}" width="110" height="150"/></a>
+    </div>
+    <div class="col-md-12 det-art" align="center" >
+        <p style="margin-bottom: 2px"><b>{{artista.art_nome}}</b></p>
+    </div>
+    <div class="col-md-12 det-art" align="center">
+        <p style="margin-bottom: 5px">{{artista.art_atividade}}</p>
+    </div>
+</div>

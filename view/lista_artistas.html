@@ -1,0 +1,26 @@
+<div class="well-sm">
+    <h3><span class="glyphicon glyphicon-film"></span> Artistas</h3>
+</div>
+<hr />
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Atividade</th>
+            <th>Nacionalidade</th>
+            <th>Data de Nascimento</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="artista in artistas | filter:pesquisaFilme">
+            <td><a href="#/detalhesArtista/{{artista.art_id}}" id="link-filme">{{artista.art_nome}}</a></td>
+            <td>{{artista.art_atividade}}</td>
+            <td>{{artista.nas_nome}}</td>
+            <td>{{artista.art_nascimento | date: "dd/MM/yyyy"}}</td>
+            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
